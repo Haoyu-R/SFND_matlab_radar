@@ -1,7 +1,7 @@
 # SFND_matlab_radar
 
 ## Implementation steps for the 2D CFAR process.
-'''
+```
 for i = Tr+Gr+1:Nr/2-(Gr+Tr)
     for j = Td+Gd+1:Nd-(Gd+Td)
         noise_level = zeros(1,1);
@@ -21,10 +21,10 @@ for i = Tr+Gr+1:Nr/2-(Gr+Tr)
         end
     end
 end
-'''
+```
 
 ## Selection of Training, Guard cells and offset. 
-'''
+```
 %Select the number of Training Cells in both the dimensions.
 Tr = 10;
 Td = 8;
@@ -34,12 +34,12 @@ Gr = 4;
 Gd = 4;
 % offset the threshold by SNR value in dB
 offset = 10;
-'''
+```
 
 ## Steps taken to suppress the non-thresholded cells at the edges.
-'''
+```
 RDM(1:Tr+Gr, :) = 0;
 RDM(end-Tr-Gr:end, :) = 0;
 RDM(:, 1:Td+Gd) = 0;
 RDM(:, end-Td-Gd:end) = 0;
-'''
+```
